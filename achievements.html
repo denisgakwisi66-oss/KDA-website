@@ -1,0 +1,52 @@
+<head>
+    <link rel="stylesheet" href="achievements.css">
+    <link rel="stylesheet" href="style.css">
+    <title>KDA Student Achievements</title>
+</head>
+<main>
+    <h1>Student Achievements</h1>
+
+    <section class="filters">
+        <label for="category">Filter by Category:</label>
+        <select id="category">
+            <option value="all">All</option>
+            <option value="academic">Academic</option>
+            <option value="sports">Sports</option>
+            <option value="arts">Arts</option>
+            <option value="leadership">Leadership</option>
+        </select>
+
+        <label for="search">Search by Student or Achievement:</label>
+        <input type="text" id="search" placeholder="e.g., Shimo ,FBTeam">
+
+        </section>
+
+    <section class="achievement-list">
+        <article class="achievement-card academic">
+            <h2>High Honors Roll - Q3</h2>
+            <p>Recognizing outstanding students with a 4.0 GPA.</p>
+            <a href="student_profile_list.html">See all students on the list</a>
+            <div class="notable-students">
+                <strong>Notable Students:</strong> 
+                
+                    <li> Amanya Godfrey </li>
+                    <li> Rwabuneza Nick </li>
+                    <li> Irahari Junior </li>
+                    <li> Ntsinzi Davis </li>
+                    <li> Gikundiro Jesse </li>
+                    <li> Shimo Denis </li>
+                    <li> Rugwiza Belden </li>
+                    <li> Manzi Heritier </li>
+                
+        </article>
+
+        <article class="achievement-card sports">
+            <h2>State Championship Soccer Team</h2>
+            <p>The KDA Ballers bring home the gold!</p>
+            <a href="gallery.html">View photos</a>
+        </article>
+    </section>
+</main>
+<body>
+    <script src="achievements.js"></script>
+</body>
