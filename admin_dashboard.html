@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KDA Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* Admin Dashboard Layout */
+        .dashboard-layout {
+            display: flex;
+            min-height: 100vh;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #333;
+            color: white;
+            padding-top: 20px;
+        }
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #cc0000;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li a {
+            display: block;
+            padding: 15px 20px;
+            color: white;
+            text-decoration: none;
+            border-bottom: 1px solid #444;
+        }
+        .sidebar ul li a:hover, .sidebar ul li.active a {
+            background-color: #004a99;
+        }
+        .content-area {
+            flex-grow: 1;
+            padding: 40px;
+        }
+        .management-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .management-table th, .management-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        .management-table th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        .action-button {
+            margin-right: 5px;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        .edit { background-color: orange; color: white; border: none; }
+        .delete { background-color: red; color: white; border: none; }
+        .add-new { float: right; }
+    </style>
+    <link href="admin_dashboard.html">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <aside class="sidebar">
+            <h2>KDA Admin</h2>
+            <nav>
+                <ul>
+                    <li class="active"><a href="#">Dashboard</a></li>
+                    <li><a href="#">Manage Achievements</a></li>
+                    <li><a href="#">Manage Students</a></li>
+                    <li><a href="#">Upload Gallery Items</a></li>
+                    <li><a href="index.html">View Public Site</a></li>
+                    <li><a href="admin_login.html">Logout</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="content-area">
+            <h1>Manage Achievements</h1>
+            <button class="button add-new">➕ Add New Achievement</button>
+
+            <table class="management-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Achievement Title</th>
+                        <th>Student Name</th>
+                        <th>Category</th>
+                        <th>Date Posted</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>101</td>
+                        <td>Football Champion</td>
+                        <td>Shimo Denis</td>
+                        <td>Sports</td>
+                        <td>2024-10-26</td>
+                        <td>
+                            <button class="action-button edit">Edit</button>
+                            <button class="action-button delete">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>102</td>
+                        <td>Science Fair Winner</td>
+                        <td>Amanya Godfrey</td>
+                        <td>Academics</td>
+                        <td>2024-09-28</td>
+                        <td>
+                            <button class="action-button edit">Edit</button>
+                            <button class="action-button delete">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+    </div>
+</body>
+</html>
