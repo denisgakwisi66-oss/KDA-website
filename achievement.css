@@ -1,0 +1,222 @@
+/* achievements.css
+    Styles for a reusable "achievements" card/grid component
+    Usage classes:
+      .achievements - container (grid)
+      .achievement-card - single card
+      .achievement-icon - icon/avatar area
+      .achievement-value - main numeric value
+      .achievement-title - title text
+      .achievement-desc  - small description
+      .achievement-progress - wrapper for progress meter
+      .achievement-progress-bar - inner bar (width set via inline style or JS)
+      .achievement-badge - small pill (optional)
+*/
+
+/* Theme variables */
+:root{
+  --ach-bg: #ffffff;
+  --card-bg: #f8fafc;
+  --muted: #6b7280;
+  --accent: #06b6d4;
+  --accent-2: #7c3aed;
+  --success: #10b981;
+  --danger: #ef4444;
+  --glass: rgba(255,255,255,0.6);
+  --radius: 12px;
+  --shadow: 0 6px 18px rgba(16,24,40,0.08);
+  --card-padding: 16px;
+  --gap: 12px;
+  --transition: 180ms cubic-bezier(.2,.8,.2,1);
+}
+
+/* Container grid */
+.achievements{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--gap);
+  align-items: start;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: transparent;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* Card */
+.achievement-card{
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: var(--card-padding);
+  background: linear-gradient(180deg, var(--card-bg), #fff);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(15,23,42,0.03);
+  transition: transform var(--transition), box-shadow var(--transition);
+  min-height: 76px;
+}
+
+/* Hover / focus effect */
+.achievement-card:hover,
+.achievement-card:focus-within{
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(16,24,40,0.12);
+}
+
+/* Icon/avatar square or circle */
+.achievement-icon{
+  flex: 0 0 56px;
+  height: 56px;
+  min-width: 56px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(124,58,237,0.12), rgba(6,182,212,0.08));
+  display: grid;
+  place-items: center;
+  color: var(--accent-2);
+  font-weight: 700;
+  font-size: 20px;
+  box-shadow: inset 0 -6px 18px rgba(0,0,0,0.02);
+}
+
+/* Allow circular icon if desired */
+.achievement-icon.circle{
+  border-radius: 999px;
+}
+
+/* Main content column */
+.achievement-body{
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Title and value row */
+.achievement-row{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+/* Numeric/value */
+.achievement-value{
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1;
+}
+
+/* Title */
+.achievement-title{
+  font-size: 13px;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-right: 8px;
+}
+
+/* Description / secondary text */
+.achievement-desc{
+  font-size: 12px;
+  color: var(--muted);
+  opacity: 0.9;
+}
+
+/* Small badge/pill */
+.achievement-badge{
+  display: inline-block;
+  background: rgba(6,182,212,0.08);
+  color: var(--accent);
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-weight: 600;
+  align-self: center;
+}
+
+/* Progress meter */
+.achievement-progress{
+  margin-top: 8px;
+  height: 8px;
+  background: linear-gradient(90deg, rgba(15,23,42,0.04), rgba(15,23,42,0.02));
+  border-radius: 999px;
+  overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* Inner bar: set width via inline style e.g. style="width: 72%;" or via JS */
+.achievement-progress-bar{
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  border-radius: 999px;
+  transition: width 700ms cubic-bezier(.2,.8,.2,1), transform var(--transition);
+  transform-origin: left center;
+  box-shadow: 0 4px 14px rgba(7,89,133,0.07);
+}
+
+/* Small text to the right of the progress for percent */
+.achievement-progress-meta{
+  display: inline-block;
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+/* Compact variant */
+.achievement-card.compact{
+  padding: 10px;
+  gap: 8px;
+  min-height: 56px;
+}
+.achievement-card.compact .achievement-icon{
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  font-size: 16px;
+}
+
+/* States */
+.achievement-card.success .achievement-icon{
+  color: var(--success);
+  background: linear-gradient(135deg, rgba(16,185,129,0.08), rgba(16,185,129,0.02));
+}
+.achievement-card.warn .achievement-icon{
+  color: #f59e0b;
+  background: linear-gradient(135deg, rgba(245,158,11,0.08), rgba(245,158,11,0.02));
+}
+.achievement-card.danger .achievement-icon{
+  color: var(--danger);
+  background: linear-gradient(135deg, rgba(239,68,68,0.08), rgba(239,68,68,0.02));
+}
+
+/* Responsive tweaks */
+@media (max-width: 420px){
+  .achievement-card{
+     padding: 12px;
+     gap: 10px;
+  }
+  .achievement-icon{
+     flex-basis: 48px;
+     height: 48px;
+     min-width: 48px;
+  }
+  .achievement-value{
+     font-size: 16px;
+  }
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce){
+  .achievement-card,
+  .achievement-progress-bar{
+     transition: none;
+     animation: none;
+  }
+}
