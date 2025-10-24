@@ -1,0 +1,205 @@
+/* ===== GLOBAL RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #f8f9fa;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* ===== HEADER ===== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #5c0c00;
+  color: white;
+  padding: 15px 60px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.13);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo img {
+  height: 60px;
+  width: auto;
+  border-radius: 8px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #cff10f;
+}
+
+/* ===== HERO SECTION ===== */
+#home {
+  background: linear-gradient(to right, rgba(0, 43, 92, 0.8), rgba(0, 43, 92, 0.6)), url('https://images.unsplash.com/photo-1571260899304-425eee4c7efc');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  padding: 100px 20px;
+}
+
+#home h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+#home p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ===== SECTION GENERAL ===== */
+section {
+  padding: 70px 10%;
+  text-align: center;
+}
+
+section h2 {
+  color: #5c0800;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  position: relative;
+}
+
+section h2::after {
+  content: "";
+  width: 80px;
+  height: 4px;
+  background-color: #0f7cf1;
+  display: block;
+  margin: 10px auto;
+  border-radius: 2px;
+}
+
+/* ===== ABOUT SECTION ===== */
+#about p {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+}
+
+/* ===== GALLERY SECTION ===== */
+.gallery-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.program {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.program:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.program h3 {
+  color: #002b5c;
+  margin-bottom: 10px;
+}
+
+/* ===== NEWS SECTION ===== */
+#news p {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1.05rem;
+}
+
+/* ===== CONTACT SECTION ===== */
+#contact form {
+  max-width: 600px;
+  margin: 40px auto 0;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+#contact input,
+#contact textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+#contact button {
+  background-color: #002b5c;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+#contact button:hover {
+  background-color: #f1c40f;
+  color: #002b5c;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background-color: #002b5c;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 60px;
+  font-size: 0.9rem;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px 30px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  #home h1 {
+    font-size: 2rem;
+  }
+
+  section {
+    padding: 50px 5%;
+  }
+}
